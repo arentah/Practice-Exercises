@@ -67,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Square.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Square.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Square.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="2" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+            <state relative-caret-position="136">
+              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -80,12 +80,22 @@
       <file leaf-file-name="Reverse_Or_Rotate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Reverse_Or_Rotate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="-765">
               <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
               <folding>
                 <element signature="e#121#122#0" expanded="true" />
                 <element signature="e#188#189#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Square_Every_digit.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Square_Every_digit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -115,6 +125,8 @@
         <option value="$PROJECT_DIR$/src/Invert_Values.java" />
         <option value="$PROJECT_DIR$/src/Reverse_Or_Rotate.java" />
         <option value="$PROJECT_DIR$/src/Square.java" />
+        <option value="$PROJECT_DIR$/src/Multi_Tap_Keypad.java" />
+        <option value="$PROJECT_DIR$/src/Square_Every_digit.java" />
       </list>
     </option>
   </component>
@@ -178,7 +190,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Square">
+  <component name="RunManager" selected="Application.Square_Every_digit">
     <configuration name="A_Sum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="A_Sum" />
@@ -221,9 +233,9 @@
       <module name="codewars-java" />
       <envs />
     </configuration>
-    <configuration name="The_Supermarket_Queue" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Square_Every_digit" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="The_Supermarket_Queue" />
+      <option name="MAIN_CLASS_NAME" value="Square_Every_digit" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -330,19 +342,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.The_Supermarket_Queue" />
-      <item index="1" class="java.lang.String" itemvalue="Application.A_Sum" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Vowel_Count" />
-      <item index="3" class="java.lang.String" itemvalue="Application.Invert_Values" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Square" />
+      <item index="0" class="java.lang.String" itemvalue="Application.A_Sum" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Vowel_Count" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Invert_Values" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Square" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Square_Every_digit" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Square" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Invert_Values" />
-        <item index="2" class="java.lang.String" itemvalue="Application.Vowel_Count" />
-        <item index="3" class="java.lang.String" itemvalue="Application.A_Sum" />
-        <item index="4" class="java.lang.String" itemvalue="Application.The_Supermarket_Queue" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Square_Every_digit" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Square" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Invert_Values" />
+        <item index="3" class="java.lang.String" itemvalue="Application.Vowel_Count" />
+        <item index="4" class="java.lang.String" itemvalue="Application.A_Sum" />
       </list>
     </recent_temporary>
   </component>
@@ -421,14 +433,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Square.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Reverse_Or_Rotate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -866,15 +870,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Multi_Tap_Keypad.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Square.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Reverse_Or_Rotate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="-765">
           <caret line="3" column="32" lean-forward="true" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
           <folding>
             <element signature="e#121#122#0" expanded="true" />
@@ -883,10 +895,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Square.java">
+    <entry file="file://$PROJECT_DIR$/src/Square_Every_digit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="2" lean-forward="false" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+        <state relative-caret-position="85">
+          <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
           <folding />
         </state>
       </provider>
