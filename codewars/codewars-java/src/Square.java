@@ -2,7 +2,6 @@
 public class Square {
     public static void main(String[] args){
     }
-
     public static boolean isSquare(int n) {
         if(Math.sqrt(n) % (int)Math.sqrt(n) == 0 )
             return true;
