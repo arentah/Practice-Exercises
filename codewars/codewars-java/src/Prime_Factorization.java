@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Prime_Factorization {
     public static void main(String[] args){
-        System.out.println(primeFactorization(777546020000L));
+        System.out.println(primeFactorization(7792349582943000L));
     }
 
     public static String primeFactorization(long num){
@@ -77,7 +77,6 @@ public class Prime_Factorization {
     public static boolean isPrime(long n) {
         if (n%2==0) return false;
         for(int i=3;i*i<=n;i+=2) {
-
             if(n%i==0)
                 return false;
         }
@@ -108,7 +107,7 @@ public class Prime_Factorization {
         if (x.compareTo(BigInteger.ZERO) < 0) {
             throw new IllegalArgumentException("Negative argument.");
         }
-        if (x .equals(BigInteger.ZERO) || x.equals(BigInteger.ONE)) {
+        if (x.equals(BigInteger.ZERO) || x.equals(BigInteger.ONE)) {
             return x;
         }
         BigInteger two = BigInteger.valueOf(2L);
