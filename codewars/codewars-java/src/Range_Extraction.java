@@ -4,7 +4,7 @@ public class Range_Extraction {
         System.out.println(rangeExtraction(new int[]{-29, -28, -27, -25, -22, -20, -19, -18, -15, -13, -12, -10,
                 -9, -6, -4, -3, 0, 2, 4, 5, 6, 8, 10, 12, 14, 15, 16, 18, 19, 21}));
         System.out.println(rangeExtraction(new int[]{1,2,4,5}));
-        System.out.println(rangeExtraction(new int[]{1,2,3,4,-4,-3,-2,8,9,11,13,-4,-3,-2}));
+        System.out.println(rangeExtraction(new int[]{1,2,3,4,-4,-3,-2,6,9,11,13,-4,-3,-2}));
     }
     public static String rangeExtraction(int[] arr) {
         StringBuilder output = new StringBuilder();
@@ -20,8 +20,9 @@ public class Range_Extraction {
                     }
                     int last = arr[count];
                     i = count;
-                    if(last == arr[arr.length-1])
+                    if(i == arr.length-1){
                         output.append(first).append("-").append(last);
+                    }
                     else
                         output.append(first).append("-").append(last).append(",");
                 }

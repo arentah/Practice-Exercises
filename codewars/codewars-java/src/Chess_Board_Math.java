@@ -3,6 +3,7 @@ import java.math.BigDecimal;
 
 public class Chess_Board_Math {
     public static void main(String[] args){
+        System.out.println(game(200000000));
     }
 
     public static String game(long n){
