@@ -29,6 +29,8 @@ public class Mixing_Strings {
                 if(hashMap2.containsValue(i)){
 
 
+
+
                 }else{
                     int count = 0;
                     ArrayList<Character> found = new ArrayList<>();
@@ -38,7 +40,7 @@ public class Mixing_Strings {
                            found.add(charRemoveDup[j]);
                         }
                     }
-                    if(count == 1){
+                    if(count == 1){ //could be replaced with found.size() instead of count
                         char[] fill = new char[hashMap1.get(found.get(0))];
                         Arrays.fill(fill, found.get(0));
                         output.append("1:").append(new String(fill)).append("/");
@@ -72,6 +74,69 @@ public class Mixing_Strings {
 
         return output.toString();
     }
+
+//    public static String mix(String s1, String s2){               ////current backup
+//        StringBuilder output = new StringBuilder();
+//        char[] str1 = s1.replaceAll("([^a-z])","").toCharArray();
+//        char[] str2 = s2.replaceAll("([^a-z])","").toCharArray();
+//        Arrays.sort(str1);
+//        Arrays.sort(str2);
+//        char[] charRemoveDup = removeDup(new String(str1)+new String(str2)).toCharArray();
+//
+//        HashMap<Character, Integer> hashMap1 = getCharCount(str1);
+//        HashMap<Character, Integer> hashMap2 = getCharCount(str2);
+//
+//        for(int i = (s1+s2).length() - 1; i >= 0; i--){
+//
+//            if(hashMap1.containsValue(i)){
+//
+//                if(hashMap2.containsValue(i)){
+//
+//
+//                }else{
+//                    int count = 0;
+//                    ArrayList<Character> found = new ArrayList<>();
+//                    for (int j = 0; j < charRemoveDup.length; j++) {
+//                        if( (hashMap1.get(charRemoveDup[j]) != null) && (hashMap1.get(charRemoveDup[j]) == i)){
+//                            count++;
+//                            found.add(charRemoveDup[j]);
+//                        }
+//                    }
+//                    if(count == 1){
+//                        char[] fill = new char[hashMap1.get(found.get(0))];
+//                        Arrays.fill(fill, found.get(0));
+//                        output.append("1:").append(new String(fill)).append("/");
+//                    }else{
+//                        char[] tmpSorted = new char[found.size()];
+//                        for(int m = 0; i < found.size(); m++){
+//                            tmpSorted[m] = found.get(m);
+//                        }
+//                        Arrays.sort(tmpSorted);
+//                        for(int k = 0; k < tmpSorted.length; k++){
+//                            char[] fill = new char[hashMap1.get(found.get(k))];
+//                            Arrays.fill(fill, found.get(k));
+//                            output.append("1:").append(new String(fill)).append("/");
+//                        }
+//                    }
+//                }
+//
+//
+//            }else if(hashMap2.containsValue(i)){
+//
+//
+//                if(hashMap1.containsValue(i)){
+//
+//                }
+//            }
+//
+//
+//
+//        }
+//
+//
+//        return output.toString();
+//    }
+
 
 //    public static String mix(String s1, String s2){
 //        StringBuilder output = new StringBuilder();
