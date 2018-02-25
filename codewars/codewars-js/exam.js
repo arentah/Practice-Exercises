@@ -4,9 +4,6 @@ function countDup(numbers){
     var arr = [];
 
     for(let i = 0; i < numbers.length; i++){
-        if(i == 5)
-            console.log("fuck",arr.indexOf(numbers[i]));
-
         if (arr.indexOf(numbers[i]) >= 0) {
             console.log("count",i,"numbers:", numbers[i]);
             console.log(result);
