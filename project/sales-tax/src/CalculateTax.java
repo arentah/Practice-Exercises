@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
+import java.util.Locale;
 
-public class CalculateTax {
+public class CalculateTax extends ConfigTaxSettings{
 
     // GOAL
     // ========================================
@@ -25,14 +26,58 @@ public class CalculateTax {
     // ========================================
     // Test methods with various types of input to ensure functionality, reliability, Maintainability, Usability
 
-    public CalculateTax(){
+    private Item[] itemArray;
+    private StringBuilder output;
+    private BigDecimal totalCost = new BigDecimal("0.00");
+    private BigDecimal totalSalesTax = new BigDecimal("0.00");
 
+    CalculateTax(){}
+
+    public CalculateTax(Item[] itemArray){
+        super();
+        this.itemArray = itemArray;
     }
 
+    public String calculateTotalSale(){
 
+        output.append("Receipt").append("\n--------------------");
 
+        for(Item item : itemArray){
+            switch (item.getItemType()){
+                case "food" :
+                    if(item.getImported()){
+                        totalSalesTax = totalSalesTax.add(item.getPrice().multiply(super.getImportTaxRate()));
+                    }else{
+                        totalCost = totalCost.add(item.getPrice());
+                    }
+                    break;
+                case "medical" :
+                    if(item.getImported()){
+                        totalSalesTax = totalSalesTax.add(item.getPrice().multiply(super.getImportTaxRate()));
+                    }else{
+                        totalCost = totalCost.add(item.getPrice());
+                    }
+                    break;
+                case "books" :
+                    if(item.getImported()){
+                        totalSalesTax = totalSalesTax.add(item.getPrice().multiply(super.getImportTaxRate()));
+                    }else{
+                        totalCost = totalCost.add(item.getPrice());
+                    }
+                    break;
+                default :
+                    if(item.getImported()){
+                        totalSalesTax = totalSalesTax.add(item.getPrice().multiply(super.getBaseTaxRate()
+                                .add(super.getImportTaxRate())));
+                        totalCost = totalCost.add(item.getPrice());
+                    }else{
+                        totalSalesTax = totalSalesTax.add(item.getPrice().multiply(super.getBaseTaxRate()));
+                        totalCost = totalCost.add(item.getPrice());
+                    }
+                    break;
+            }
+        }
 
-
-
-
+        return output.toString();
+    }
 }
