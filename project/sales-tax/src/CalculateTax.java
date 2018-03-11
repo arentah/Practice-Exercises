@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class CalculateTax {
 
     // GOAL
@@ -14,13 +16,23 @@ public class CalculateTax {
     // CLASSES
     // ========================================
     // CalculateTax class to handle object creation
-    // ConfigTaxSettings class? interface? to handle configurable options
+    // Item class to represent the items being sold
+    // ConfigTaxSettings abstract class? or interface? to handle configurable options
     // BigDecimal class to handle tax calculations
-    // NumberFormat class for displaying, or maybe right your own class
+    // NumberFormat class for displaying, or StringBuilder, or maybe write your own class
 
     // UNIT TESTING
     // ========================================
     // Test methods with various types of input to ensure functionality, reliability, Maintainability, Usability
+
+    public CalculateTax(){
+
+    }
+
+
+
+
+
 
 
 }
