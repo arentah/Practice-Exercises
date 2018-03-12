@@ -1,5 +1,4 @@
 import java.math.BigDecimal;
-import java.util.Locale;
 
 public class CalculateTax extends ConfigTaxSettings{
 
@@ -14,17 +13,18 @@ public class CalculateTax extends ConfigTaxSettings{
     // Round up to the nearest .05 cents for tax calculations
     // Include all source documents
 
-    // CLASSES
+    // CLASSES/ENUMS
     // ========================================
     // CalculateTax class to handle object creation
     // Item class to represent the items being sold
     // ConfigTaxSettings abstract class? or interface? to handle configurable options
     // BigDecimal class to handle tax calculations
     // NumberFormat class for displaying, or StringBuilder, or maybe write your own class
+    // ItemType enum to specify and limit the set of possible item types
 
     // UNIT TESTING
     // ========================================
-    // Test methods with various types of input to ensure functionality, reliability, Maintainability, Usability
+    // Test methods with various types of input to ensure functionality, reliability, Maintainability, and Usability
 
     private Item[] itemArray;
     private StringBuilder output;
@@ -44,8 +44,9 @@ public class CalculateTax extends ConfigTaxSettings{
         output = new StringBuilder();
 
         for(Item item : itemArray){
-            if(item.getItemType().equals("food") || item.getItemType().equals("medical")
-                    || item.getItemType().equals("book")){
+            if(item.getItemType() == ItemType.BOOKS || item.getItemType() == ItemType.FOOD
+                || item.getItemType() == ItemType.MEDICAL /*item.getItemType().equals("food") || item.getItemType().equals("medical")
+                    || item.getItemType().equals("book")*/){
                 if(item.getImported()){
                     taxOnItem = item.getPrice().multiply(super.getImportTaxRate());
                     taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
@@ -72,7 +73,6 @@ public class CalculateTax extends ConfigTaxSettings{
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate());
                     taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
                             .setScale(2, BigDecimal.ROUND_HALF_UP);
-                    System.out.println(taxOnItem);
                     totalSalesTax = totalSalesTax.add(taxOnItem); /*item.getPrice().multiply(super.getBaseTaxRate())*/
                     totalCost = totalCost.add(item.getPrice());
                     output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
@@ -80,7 +80,6 @@ public class CalculateTax extends ConfigTaxSettings{
                 }
             }
         }
-
         output = output.append("Sales Taxes: ").append(totalSalesTax).append("\n");
         output = output.append("Total: ").append(totalCost.add(totalSalesTax));
 

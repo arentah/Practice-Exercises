@@ -1,19 +1,18 @@
 import java.math.BigDecimal;
 
 class Item {
-
     private String itemName;
     private int quantity;
     private BigDecimal price;
     private boolean imported;
-    private String itemType;
+    private ItemType type;
 
-    public Item( int quantity, String itemName, BigDecimal price, boolean imported, String itemType){
+    public Item( int quantity, String itemName, BigDecimal price, boolean imported, ItemType type ){
         this.quantity = quantity;
         this.itemName = itemName;
         this.price = price;
         this.imported = imported;
-        this.itemType = itemType;
+        this.type = type;
     }
 
     public String getItemName(){
@@ -32,8 +31,14 @@ class Item {
         return imported;
     }
 
-    public String getItemType(){
-        return itemType;
-    }
+    public ItemType getItemType(){return type;}
 
 }
+
+enum ItemType {
+    FOOD,
+    BOOKS,
+    MEDICAL,
+    MISC
+}
+
