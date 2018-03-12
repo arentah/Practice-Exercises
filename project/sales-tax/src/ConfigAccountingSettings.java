@@ -26,7 +26,7 @@ public abstract class ConfigAccountingSettings {
         importTaxRate = new BigDecimal(importRate);
     }
 
-    abstract StringBuilder customOutputDisplay(StringBuilder output, BigDecimal value, Item item);
+    abstract StringBuilder customOutputDisplay(StringBuilder output);
 
     protected void setNumberFormat(Locale locale){
         if(locale == null) throw new IllegalArgumentException("Please enter a valid ISO 639 alpha-2 or alpha-3 language code.");

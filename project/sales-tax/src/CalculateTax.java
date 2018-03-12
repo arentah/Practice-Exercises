@@ -13,6 +13,7 @@ public class CalculateTax extends ConfigAccountingSettings {
     }
 
     public CalculateTax(Item[] itemArray) {
+
         super();
         this.itemArray = itemArray;
     }
@@ -26,31 +27,31 @@ public class CalculateTax extends ConfigAccountingSettings {
                     || item.getItemType() == ItemType.MEDICAL) {
                 if (item.getImported()) {
                     taxOnItem = item.getPrice().multiply(super.getImportTaxRate());
-                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
-                            .setScale(2, BigDecimal.ROUND_HALF_UP);
+                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP)
+                            .divide(new BigDecimal("20")).setScale(2, BigDecimal.ROUND_HALF_UP);
                     totalSalesTax = totalSalesTax.add(taxOnItem);
                     totalCost = totalCost.add(item.getPrice());
-                    output = customOutputDisplay(output, taxOnItem, item);
+                    output = appendOutput(output, taxOnItem, item);
                 } else {
                     totalCost = totalCost.add(item.getPrice());
                     taxOnItem = new BigDecimal("0.00");
-                    output = customOutputDisplay(output, taxOnItem, item);
+                    output = appendOutput(output, taxOnItem, item);
                 }
             } else {
                 if (item.getImported()) {
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate().add(getImportTaxRate()));
-                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
-                            .setScale(2, BigDecimal.ROUND_HALF_UP);
+                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP)
+                            .divide(new BigDecimal("20")).setScale(2, BigDecimal.ROUND_HALF_UP);
                     totalSalesTax = totalSalesTax.add(taxOnItem);
                     totalCost = totalCost.add(item.getPrice());
-                    output = customOutputDisplay(output, taxOnItem, item);
+                    output = appendOutput(output, taxOnItem, item);
                 } else {
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate());
-                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
-                            .setScale(2, BigDecimal.ROUND_HALF_UP);
+                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP)
+                            .divide(new BigDecimal("20")).setScale(2, BigDecimal.ROUND_HALF_UP);
                     totalSalesTax = totalSalesTax.add(taxOnItem);
                     totalCost = totalCost.add(item.getPrice());
-                    output = customOutputDisplay(output, taxOnItem, item);
+                    output = appendOutput(output, taxOnItem, item);
                 }
             }
         }
@@ -60,9 +61,13 @@ public class CalculateTax extends ConfigAccountingSettings {
         return output.toString();
     }
 
-    @Override
-    StringBuilder customOutputDisplay(StringBuilder output, BigDecimal taxOnItem, Item item) {
+    private StringBuilder appendOutput(StringBuilder output, BigDecimal taxOnItem, Item item){
         return output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
                 .append(item.getPrice().add(taxOnItem)).append("\n");
+    }
+
+    @Override
+    StringBuilder customOutputDisplay(StringBuilder output) {
+        return null;
     }
 }
