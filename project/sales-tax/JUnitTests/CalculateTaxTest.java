@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CalculateTaxUnitTest {
     @Test
-    void calculateSale() {
+    void testCalculateSale1() {
         Item[] it = new Item[10];
         it[0] = new Item(1,"book",new BigDecimal("19.87"),false, ItemType.BOOKS);
         it[1] = new Item(1,"CD",new BigDecimal("13.99"),true, ItemType.MISC);

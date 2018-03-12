@@ -1,12 +1,19 @@
+/*
+* Concrete class that creates item Objects with various attributes.
+*/
+
 import java.math.BigDecimal;
 
 class Item {
+
+    /*Global variables*/
     private String itemName;
     private int quantity;
     private BigDecimal price;
     private boolean imported;
     private ItemType itemType;
 
+    /*Primary Constructor*/
     Item( int quantity, String itemName, BigDecimal price, boolean imported, ItemType itemType ){
 
         if(itemName == null || itemName.isEmpty()) this.itemName = "MISSING ITEM NAME";
@@ -18,10 +25,13 @@ class Item {
         if(itemType == null) throw new IllegalArgumentException("Please enter a valid item type for \""+ itemName+"\"");
         else this.itemType = itemType;
 
-        this.quantity = quantity;
+        if(quantity > 0) this.quantity = quantity;
+        else throw new IllegalArgumentException("Please enter a valid quantity greater than or equal to 1.");
+
         this.imported = imported;
     }
 
+    /*Getter methods*/
     String getItemName(){
         return itemName;
     }
@@ -40,6 +50,7 @@ class Item {
 
     ItemType getItemType(){return itemType;}
 
+    /*Setter methods*/
     void setItemName(String itemName){
         if(itemName == null || itemName.isEmpty()) this.itemName = "MISSING ITEM NAME";
         else this.itemName = itemName;
@@ -64,6 +75,7 @@ class Item {
     }
 }
 
+/*Enum class to limit and specify the acceptable types of items*/
 enum ItemType {
     FOOD,
     BOOKS,
