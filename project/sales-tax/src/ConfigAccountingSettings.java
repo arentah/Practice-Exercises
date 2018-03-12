@@ -20,42 +20,46 @@ public abstract class ConfigAccountingSettings {
 
     protected ConfigAccountingSettings(Locale locale, String baseRate, String importRate){
         this.locale = locale;
-        currency = Currency.getInstance(locale);
+        this.currency = Currency.getInstance(locale);
+        this.numberFormat = NumberFormat.getInstance(locale);
         baseTaxRate = new BigDecimal(baseRate);
         importTaxRate = new BigDecimal(importRate);
     }
 
-    abstract StringBuilder customOutputDisplay(StringBuilder output, BigDecimal taxOnItem, Item item);
+    abstract StringBuilder customOutputDisplay(StringBuilder output, BigDecimal value, Item item);
 
     protected void setNumberFormat(Locale locale){
-        numberFormat = NumberFormat.getInstance(locale);
+        if(locale == null) throw new IllegalArgumentException("Please enter a valid ISO 639 alpha-2 or alpha-3 language code.");
+        else this.numberFormat = NumberFormat.getInstance(locale);
     }
 
     protected void setCurrency(Currency currency){
-        this.currency = currency;
+        if(currency == null) throw new IllegalArgumentException("Please enter a valid ISO 4217 Currency Code.");
+        else this.currency = currency;
     }
 
     protected void setLocale(Locale locale){
-        this.locale = locale;
+        if(locale == null) throw new IllegalArgumentException("Please enter a valid ISO 639 alpha-2 or alpha-3 language code.");
+        else this.locale = locale;
     }
 
-    protected void setBaseTaxRate(BigDecimal baseTaxRate){
-        this.baseTaxRate = baseTaxRate;
+    protected void setBaseTaxRate(BigDecimal baseTaxRate) {
+        if(baseTaxRate == null) throw new IllegalArgumentException("Please enter a valid base tax rate.");
+        else this.baseTaxRate = baseTaxRate;
     }
 
-    protected void setImportTaxRate(BigDecimal importTaxRate){
-        this.importTaxRate = importTaxRate;
+    protected void setImportTaxRate(BigDecimal importTaxRate) {
+        if(importTaxRate == null) throw new IllegalArgumentException("Please enter a valid import tax rate.");
+        else this.importTaxRate = importTaxRate;
     }
 
-    protected Locale getLocale(){
-        return this.locale;
-    }
+    protected Locale getLocale() { return locale; }
 
-    protected BigDecimal getBaseTaxRate() {
-        return baseTaxRate;
-    }
+    protected BigDecimal getBaseTaxRate() { return baseTaxRate; }
 
-    protected BigDecimal getImportTaxRate() {
-        return importTaxRate;
-    }
+    protected BigDecimal getImportTaxRate() { return importTaxRate; }
+
+    protected Currency getCurrency() { return currency; }
+
+    protected NumberFormat getNumberFormat() { return numberFormat; }
 }

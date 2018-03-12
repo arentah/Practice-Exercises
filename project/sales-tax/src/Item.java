@@ -7,12 +7,19 @@ class Item {
     private boolean imported;
     private ItemType itemType;
 
-    Item( int quantity, String itemName, BigDecimal price, boolean imported, ItemType type ){
+    Item( int quantity, String itemName, BigDecimal price, boolean imported, ItemType itemType ){
+
+        if(itemName == null || itemName.isEmpty()) this.itemName = "MISSING ITEM NAME";
+        else this.itemName = itemName;
+
+        if(price == null) throw new IllegalArgumentException("Please enter a valid price for \""+ itemName+"\"");
+        else this.price = price;
+
+        if(itemType == null) throw new IllegalArgumentException("Please enter a valid item type for \""+ itemName+"\"");
+        else this.itemType = itemType;
+
         this.quantity = quantity;
-        this.itemName = itemName;
-        this.price = price;
         this.imported = imported;
-        this.itemType = type;
     }
 
     String getItemName(){
@@ -34,7 +41,8 @@ class Item {
     ItemType getItemType(){return itemType;}
 
     void setItemName(String itemName){
-        this.itemName = itemName;
+        if(itemName == null || itemName.isEmpty()) this.itemName = "MISSING ITEM NAME";
+        else this.itemName = itemName;
     }
 
     void setQuantity(int quantity){
@@ -42,7 +50,8 @@ class Item {
     }
 
     void setPrice(BigDecimal price){
-        this.price = price;
+        if(price == null) throw new IllegalArgumentException("Please enter a valid price for \""+ itemName+"\"");
+        else this.price = price;
     }
 
     void setImported(boolean imported){
@@ -50,9 +59,9 @@ class Item {
     }
 
     void setItemType(ItemType itemType){
-        this.itemType = itemType;
+        if(itemType == null) throw new IllegalArgumentException("Please enter a valid item type for \""+ itemName+"\"");
+        else this.itemType = itemType;
     }
-
 }
 
 enum ItemType {
