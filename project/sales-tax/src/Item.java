@@ -5,33 +5,53 @@ class Item {
     private int quantity;
     private BigDecimal price;
     private boolean imported;
-    private ItemType type;
+    private ItemType itemType;
 
-    public Item( int quantity, String itemName, BigDecimal price, boolean imported, ItemType type ){
+    Item( int quantity, String itemName, BigDecimal price, boolean imported, ItemType type ){
         this.quantity = quantity;
         this.itemName = itemName;
         this.price = price;
         this.imported = imported;
-        this.type = type;
+        this.itemType = type;
     }
 
-    public String getItemName(){
+    String getItemName(){
         return itemName;
     }
 
-    public int getQuantity(){
+    int getQuantity(){
         return quantity;
     }
 
-    public BigDecimal getPrice(){
+    BigDecimal getPrice(){
         return price;
     }
 
-    public boolean getImported(){
+    boolean getImported(){
         return imported;
     }
 
-    public ItemType getItemType(){return type;}
+    ItemType getItemType(){return itemType;}
+
+    void setItemName(String itemName){
+        this.itemName = itemName;
+    }
+
+    void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    void setPrice(BigDecimal price){
+        this.price = price;
+    }
+
+    void setImported(boolean imported){
+        this.imported = imported;
+    }
+
+    void setItemType(ItemType itemType){
+        this.itemType = itemType;
+    }
 
 }
 

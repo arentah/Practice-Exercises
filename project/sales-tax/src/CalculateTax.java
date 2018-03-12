@@ -7,7 +7,7 @@ public class CalculateTax extends ConfigAccountingSettings {
     private Item[] itemArray;
     private BigDecimal totalCost = new BigDecimal("0.00");
     private BigDecimal totalSalesTax = new BigDecimal("0.00");
-    final String spacer = " ";
+    private final String spacer = " ";
 
     CalculateTax() {
     }
