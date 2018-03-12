@@ -1,4 +1,32 @@
 import java.math.BigDecimal;
+import java.text.FieldPosition;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
+import java.util.Locale;
+
+// GOAL
+// ========================================
+// Object-oriented class that performs the calculation of tax (sales & import) and displays an output
+// of the items purchased with their respective price, the total amount of sales tax paid, and the total cost
+
+// SPECIFICATIONS
+// ========================================
+// Code must be configurable, i.e. the user must be able to change tax rates, change currencies, add new taxes, etc
+// Round up to the nearest .05 cents for tax calculations
+// Include all source documents
+
+// CLASSES/ENUMS
+// ========================================
+// CalculateTax class to handle object creation
+// Item class to represent the items being sold
+// ConfigTaxSettings abstract class? or interface? to handle configurable options
+// BigDecimal class to handle tax calculations
+// NumberFormat class for displaying, or StringBuilder, or maybe write your own class
+// ItemType enum to specify and limit the set of possible item types
+
+// UNIT TESTING
+// ========================================
+// Test methods with various types of input to ensure functionality, reliability, Maintainability, and Usability
 
 public class TestEnvironment {
     public static void main(String[] args){

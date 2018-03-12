@@ -1,53 +1,31 @@
 import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.util.Locale;
 
-public class CalculateTax extends ConfigTaxSettings{
-
-    // GOAL
-    // ========================================
-    // Object-oriented class that performs the calculation of tax (sales & import) and displays an output
-    // of the items purchased with their respective price, the total amount of sales tax paid, and the total cost
-
-    // SPECIFICATIONS
-    // ========================================
-    // Code must be configurable, i.e. the user must be able to change tax rates, change currencies, add new taxes, etc
-    // Round up to the nearest .05 cents for tax calculations
-    // Include all source documents
-
-    // CLASSES/ENUMS
-    // ========================================
-    // CalculateTax class to handle object creation
-    // Item class to represent the items being sold
-    // ConfigTaxSettings abstract class? or interface? to handle configurable options
-    // BigDecimal class to handle tax calculations
-    // NumberFormat class for displaying, or StringBuilder, or maybe write your own class
-    // ItemType enum to specify and limit the set of possible item types
-
-    // UNIT TESTING
-    // ========================================
-    // Test methods with various types of input to ensure functionality, reliability, Maintainability, and Usability
+public class CalculateTax extends ConfigTaxSettings {
 
     private Item[] itemArray;
-    private StringBuilder output;
     private BigDecimal totalCost = new BigDecimal("0.00");
     private BigDecimal totalSalesTax = new BigDecimal("0.00");
+    private NumberFormat numberFormat;
 
-    CalculateTax(){}
+    CalculateTax() {
+    }
 
-    public CalculateTax(Item[] itemArray){
+    public CalculateTax(Item[] itemArray) {
         super();
         this.itemArray = itemArray;
     }
 
-    public String calculateTotalSale(){
+    public String calculateTotalSale() {
         BigDecimal taxOnItem;
         final String spacer = " ";
-        output = new StringBuilder();
+        StringBuilder output = new StringBuilder();
 
-        for(Item item : itemArray){
-            if(item.getItemType() == ItemType.BOOKS || item.getItemType() == ItemType.FOOD
-                || item.getItemType() == ItemType.MEDICAL /*item.getItemType().equals("food") || item.getItemType().equals("medical")
-                    || item.getItemType().equals("book")*/){
-                if(item.getImported()){
+        for (Item item : itemArray) {
+            if (item.getItemType() == ItemType.BOOKS || item.getItemType() == ItemType.FOOD
+                    || item.getItemType() == ItemType.MEDICAL) {
+                if (item.getImported()) {
                     taxOnItem = item.getPrice().multiply(super.getImportTaxRate());
                     taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
                             .setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -55,13 +33,13 @@ public class CalculateTax extends ConfigTaxSettings{
                     totalCost = totalCost.add(item.getPrice());
                     output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
                             .append(item.getPrice().add(taxOnItem)).append("\n");
-                }else{
+                } else {
                     totalCost = totalCost.add(item.getPrice());
                     output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
                             .append(item.getPrice()).append("\n");
                 }
-            }else{
-                if(item.getImported()){
+            } else {
+                if (item.getImported()) {
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate().add(getImportTaxRate()));
                     taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
                             .setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -69,7 +47,7 @@ public class CalculateTax extends ConfigTaxSettings{
                     totalCost = totalCost.add(item.getPrice());
                     output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
                             .append(item.getPrice().add(taxOnItem)).append("\n");
-                }else{
+                } else {
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate());
                     taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
                             .setScale(2, BigDecimal.ROUND_HALF_UP);
@@ -84,5 +62,10 @@ public class CalculateTax extends ConfigTaxSettings{
         output = output.append("Total: ").append(totalCost.add(totalSalesTax));
 
         return output.toString();
+    }
+
+    @Override
+    void setNumberFormatDisplay(Locale locale) {
+        numberFormat = NumberFormat.getInstance(locale);
     }
 }
