@@ -8,19 +8,18 @@ public class CalculateTax extends ConfigAccountingSettings {
     private BigDecimal totalCost = new BigDecimal("0.00");
     private BigDecimal totalSalesTax = new BigDecimal("0.00");
     private final String spacer = " ";
+    private StringBuilder output = new StringBuilder();
 
     CalculateTax() {
     }
 
     public CalculateTax(Item[] itemArray) {
-
         super();
         this.itemArray = itemArray;
     }
 
-    public String calculateSale() {
+    public BigDecimal[] calculateSale() {
         BigDecimal taxOnItem;
-        StringBuilder output = new StringBuilder();
 
         for (Item item : itemArray) {
             if (item.getItemType() == ItemType.BOOKS || item.getItemType() == ItemType.FOOD
@@ -55,9 +54,14 @@ public class CalculateTax extends ConfigAccountingSettings {
                 }
             }
         }
-        output = output.append("Sales Taxes: ").append(totalSalesTax).append("\n");
-        output = output.append("Total: ").append(totalCost.add(totalSalesTax));
+        totalCost = totalCost.add(totalSalesTax);
+        return new BigDecimal[]{totalSalesTax, totalCost};
+    }
 
+    public String calculate(){
+        BigDecimal result[] = calculateSale();
+        output = output.append("Sales Taxes: ").append(result[0]).append("\n");
+        output = output.append("Total: ").append(result[1]);
         return output.toString();
     }
 
