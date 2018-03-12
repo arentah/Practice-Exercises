@@ -25,6 +25,8 @@ public abstract class ConfigAccountingSettings {
         importTaxRate = new BigDecimal(importRate);
     }
 
+    abstract String customOutputDisplay(StringBuilder output);
+
     protected void setNumberFormat(Locale locale){
         numberFormat = NumberFormat.getInstance(locale);
     }

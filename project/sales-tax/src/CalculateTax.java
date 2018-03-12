@@ -48,7 +48,7 @@ public class CalculateTax extends ConfigAccountingSettings {
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate());
                     taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
                             .setScale(2, BigDecimal.ROUND_HALF_UP);
-                    totalSalesTax = totalSalesTax.add(taxOnItem); 
+                    totalSalesTax = totalSalesTax.add(taxOnItem);
                     totalCost = totalCost.add(item.getPrice());
                     output = appendOutput(output, taxOnItem, item);
                 }
@@ -65,4 +65,8 @@ public class CalculateTax extends ConfigAccountingSettings {
                 .append(item.getPrice().add(taxOnItem)).append("\n");
     }
 
+    @Override
+    String customOutputDisplay(StringBuilder output) {
+        return null;
+    }
 }
