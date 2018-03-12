@@ -3,32 +3,38 @@ import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
 
-public abstract class ConfigTaxSettings {
+public abstract class ConfigAccountingSettings {
 
-    private Currency currency;
     private Locale locale;
     private BigDecimal baseTaxRate;
     private BigDecimal importTaxRate;
+    private NumberFormat numberFormat;
+    private Currency currency;
 
-    protected ConfigTaxSettings(){
+    protected ConfigAccountingSettings(){
         locale = Locale.US;
         currency = Currency.getInstance(locale);
         baseTaxRate = new BigDecimal(".10");
         importTaxRate = new BigDecimal(".05");
     }
 
-    protected ConfigTaxSettings(Locale locale, String baseRate, String importRate){
+    protected ConfigAccountingSettings(Locale locale, String baseRate, String importRate){
         this.locale = locale;
         currency = Currency.getInstance(locale);
         baseTaxRate = new BigDecimal(baseRate);
         importTaxRate = new BigDecimal(importRate);
     }
 
-    abstract void setNumberFormatDisplay(Locale locale);
+    protected void setNumberFormat(Locale locale){
+        numberFormat = NumberFormat.getInstance(locale);
+    }
+
+    protected void setCurrency(Currency currency){
+        this.currency = currency;
+    }
 
     protected void setLocale(Locale locale){
         this.locale = locale;
-        currency = Currency.getInstance(locale);
     }
 
     protected void setBaseTaxRate(BigDecimal baseTaxRate){
