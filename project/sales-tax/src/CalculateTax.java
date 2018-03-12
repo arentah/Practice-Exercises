@@ -89,7 +89,7 @@ public class CalculateTax extends ConfigAccountingSettings {
 
     /*StringBuilder method to add each item to the final output string*/
     private StringBuilder appendOutput(StringBuilder output, BigDecimal taxOnItem, Item item){
-        return output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
+        return output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(":").append(spacer)
                 .append(item.getPrice().add(taxOnItem)).append("\n");
     }
 
