@@ -8,9 +8,9 @@ class Item {
     private boolean imported;
     private String itemType;
 
-    public Item(String itemName, int quantity, BigDecimal price, boolean imported, String itemType){
-        this.itemName = itemName;
+    public Item( int quantity, String itemName, BigDecimal price, boolean imported, String itemType){
         this.quantity = quantity;
+        this.itemName = itemName;
         this.price = price;
         this.imported = imported;
         this.itemType = itemType;

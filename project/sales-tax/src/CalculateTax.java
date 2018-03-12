@@ -41,13 +41,17 @@ public class CalculateTax extends ConfigTaxSettings{
     public String calculateTotalSale(){
         BigDecimal taxOnItem;
         final String spacer = " ";
+        output = new StringBuilder();
 
         for(Item item : itemArray){
             if(item.getItemType().equals("food") || item.getItemType().equals("medical")
-                    || item.getItemType().equals("books")){
+                    || item.getItemType().equals("book")){
                 if(item.getImported()){
                     taxOnItem = item.getPrice().multiply(super.getImportTaxRate());
+                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
+                            .setScale(2, BigDecimal.ROUND_HALF_UP);
                     totalSalesTax = totalSalesTax.add(taxOnItem);
+                    totalCost = totalCost.add(item.getPrice());
                     output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
                             .append(item.getPrice().add(taxOnItem)).append("\n");
                 }else{
@@ -58,13 +62,18 @@ public class CalculateTax extends ConfigTaxSettings{
             }else{
                 if(item.getImported()){
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate().add(getImportTaxRate()));
+                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
+                            .setScale(2, BigDecimal.ROUND_HALF_UP);
                     totalSalesTax = totalSalesTax.add(taxOnItem);
                     totalCost = totalCost.add(item.getPrice());
                     output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
                             .append(item.getPrice().add(taxOnItem)).append("\n");
                 }else{
                     taxOnItem = item.getPrice().multiply(super.getBaseTaxRate());
-                    totalSalesTax = totalSalesTax.add(item.getPrice().multiply(super.getBaseTaxRate()));
+                    taxOnItem = taxOnItem.multiply(new BigDecimal("20")).setScale(0, BigDecimal.ROUND_UP).divide(new BigDecimal("20"))
+                            .setScale(2, BigDecimal.ROUND_HALF_UP);
+                    System.out.println(taxOnItem);
+                    totalSalesTax = totalSalesTax.add(taxOnItem); /*item.getPrice().multiply(super.getBaseTaxRate())*/
                     totalCost = totalCost.add(item.getPrice());
                     output.append(item.getQuantity()).append(spacer).append(item.getItemName()).append(spacer)
                             .append(item.getPrice().add(taxOnItem)).append("\n");
@@ -73,7 +82,7 @@ public class CalculateTax extends ConfigTaxSettings{
         }
 
         output = output.append("Sales Taxes: ").append(totalSalesTax).append("\n");
-        output = output.append("Total: ").append(totalCost);
+        output = output.append("Total: ").append(totalCost.add(totalSalesTax));
 
         return output.toString();
     }
