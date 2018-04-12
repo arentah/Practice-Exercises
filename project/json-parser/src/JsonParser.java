@@ -1,7 +1,6 @@
 import org.json.*;
 import java.io.File;
 import java.util.ArrayList;
-
 import org.apache.commons.io.FileUtils;
 
 public class JsonParser {
@@ -16,7 +15,9 @@ public class JsonParser {
     }
 
     private void readJSON() throws Exception {
-        File file = new File("./json/sample.json");
+        String path = "C:\\Users\\Aren\\IdeaProjects\\practice-exercises\\project\\json-parser\\json\\sample.json";
+        File file = new File(path);
+        //File file = new File("./json/sample.json");
         String content = FileUtils.readFileToString(file, "utf-8");
         JSONObject sample = new JSONObject(content);
         JSONArray jsonArray = sample.getJSONArray("features");
