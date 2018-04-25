@@ -6,7 +6,18 @@ public class Bundesliga {
     private static ArrayList<Team> teamList;
 
     public static void main(String[] args) {
-        String[] sample = {};
+        String[] sample = {
+                "6:0 FC Bayern Muenchen - Werder Bremen",
+                "1:0 Eintracht Frankfurt - Schalke 04",
+                "0:2 FC Augsburg - VfL Wolfsburg",
+                "1:1 Hamburger SV - FC Ingolstadt",
+                "2:0 1. FC Koeln - SV Darmstadt",
+                "2:1 Borussia Dortmund - FSV Mainz 05",
+                "2:1 Borussia Moenchengladbach - Bayer Leverkusen",
+                "2:1 Hertha BSC Berlin - SC Freiburg",
+                "2:2 TSG 1899 Hoffenheim - RasenBall Leipzig"
+        };
+        System.out.println(table(sample));
     }
 
     public static String table(String[] results) {

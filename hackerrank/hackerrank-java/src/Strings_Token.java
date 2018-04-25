@@ -12,7 +12,6 @@ public class Strings_Token {
 //        str = str.replace("'"," ");
 //        str = str.replace(",","");
 
-
         //str = str.replaceAll("[,]","");
         str = str.replaceAll("[._!?,@']"," ");
         String []token = str.split("[\\s]");
