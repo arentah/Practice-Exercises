@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Ch1_Question8 {
     public static void main(String[] args){
-        int[][] tmp = {{ 1,0,3,4,5}, {6,7,8,0,1}, {9,8,7,6,5}};
+        int[][] tmp = {{1,0,3,4,5}, {6,7,8,0,1}, {9,8,7,6,5}};
         for(int i = 0; i < tmp.length; i++){
             for(int j = 0; j < tmp[0].length; j++){
 
