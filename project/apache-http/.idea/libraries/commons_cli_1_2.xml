@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="commons-cli-1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/commons-cli-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/commons-codec-1.10.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/commons-logging-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/fluent-hc-4.5.5.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/httpclient-4.5.5.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/httpclient-cache-4.5.5.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/httpclient-win-4.5.5.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/httpcore-4.4.9.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/httpcore-ab-4.4.9.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/httpcore-nio-4.4.9.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/httpmime-4.5.5.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/jna-4.4.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jar/jna-platform-4.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

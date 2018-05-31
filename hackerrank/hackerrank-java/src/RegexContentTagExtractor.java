@@ -9,49 +9,32 @@ public class RegexContentTagExtractor {
 //        Pattern p = Pattern.compile(regex);
         int testCases =1;//= Integer.parseInt(scanner.nextLine());
         while(testCases > 0){
-            String regex = "(<)((?:\\w+\\s*)+>)((?:\\w+\\s*)+)(?:\\1/\\2)";
-            //String regex = "(<)([^>]+>)([^>]*)(?:\\1/\\2)";
+            //String regex = "(<)((?:\\w+\\s*)+>)((?:\\w+\\s*)+)(?:\\1/\\2)";
+            String regex = "(<)([^>]+>)([^>]*)(?:\\1/\\2)";
             Pattern p = Pattern.compile(regex);
-            //String line = scanner.nextLine();
-            String line = "<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>";
+            String line = scanner.nextLine();
             Matcher m = p.matcher(line);
 
-            while(m.find())
-                System.out.println(m.group(3));
+            int count = 0;
+            while(m.find()) {
+                count++;
+                if (!m.group(3).equals(""))
+                    System.out.println(m.group(3));
+            }
 
             m.reset();
             if(!m.find())
                 System.out.println("None");
+            else if(count == 1 && m.group(3).equals("")){
+                System.out.println("None");
+            }
             testCases--;
         }
+        System.out.println("--------");
     }
 }
 
-/*
-<h1>some</h1>
-<h1>had<h1>public</h1></h1>
-<h1>had<h1>public</h1515></h1>
-<h1><h1></h1></h1>
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>
-<>hello</>
-<>hello</><h>dim</h>
-<>hello</><h>dim</h>>>>>
-*/
 
-/*
-some
-public
-None
-None
-None
-None
-None
-None
-dim
-dim
-*/
 
 //String regex = "(<)(\\w+>)(?:(?:\\s*\\w+\\s*)+||(?:(<)(\\w+>)(?:\\s*\\w+\\s*)(?:\\3/\\4)))(?:\\1/\\2)"; //"(<)(\\w+>)(?:\\s*\\w+\\s*)+(?:\\1/\\2)"
 //System.out.println("char at: "+m.start()+", "+input.charAt(m.start())+" char at: "+(m.end()-1)+", "+input.charAt(m.end()-1));

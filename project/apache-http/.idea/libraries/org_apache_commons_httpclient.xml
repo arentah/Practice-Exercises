@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.apache.commons.httpclient">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/org.apache.commons.httpclient.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/jar-20180517T011440Z-001/jsoup-1.11.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
